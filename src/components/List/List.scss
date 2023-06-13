@@ -1,7 +1,6 @@
 ul {
     list-style: none;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 26px 26px 52px #fff,
-    -26px -26px 52px #bebebe;
+    padding: var(--big-padding);
+    border-radius: var(--big-border);
+    box-shadow: var(--big-shadow);
 }

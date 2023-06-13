@@ -2,25 +2,24 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: var(--medium-border);
+    padding: var(--small-padding);
 
-    box-shadow: 4px 4px 8px #fff,
-    -4px -4px 8px #bebebe;
+    box-shadow: var(--weak-shadow)d;
     
     & + & {
-        margin-top: 20px;
+        margin-top: var(--big-margin);
     }
 
     &__status {
         flex-shrink: 0;
         align-self: center;
-        margin-inline-end: 10px;
+        margin-inline-end: var(--small-margin);
     }
 
     &__body {
         flex-grow: 1;
-        padding-inline-end: 10px;
+        padding-inline-end: var(--small-padding);
     }
 
     &__text {
