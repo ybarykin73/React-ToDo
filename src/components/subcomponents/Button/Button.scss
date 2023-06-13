@@ -1,16 +1,20 @@
 .button {
     padding: 10px 10px;
     border: none;
-    border-radius: 50%;
+    border-radius: 20px;
+    font-size: 16px;
     background-color: #e0e0e0;
     box-shadow: 4px 4px 8px #bebebe,
                 -4px -4px 8px #fff;
-
     transition: background-color 0.4s;
 
     &:hover,
     &:focus {
         background-color: #d1d1d1;
+    }
+
+    &--image {
+        border-radius: 50%;
     }
 
     &__image {

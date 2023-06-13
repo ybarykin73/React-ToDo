@@ -4,7 +4,7 @@ import './Textarea.scss'
 
 const Textarea = () => {
     return (
-        <textarea className='input' type="text" />
+        <textarea className='textarea' type="text" />
     )
 }
 

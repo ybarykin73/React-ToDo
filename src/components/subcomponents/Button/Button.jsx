@@ -5,18 +5,25 @@ import './Button.scss'
 const Button = (props) => {
 
     const {
+        text,
         image,
         onClick
     } = props
 
     return (
-        <button className='button'>
-            <img 
-                className='button__image' 
-                src={image} 
-                alt="trash"
-                onClick={onClick}
-            />
+        <button className={`button ${image ? 'button--image' : ''}`}>
+            {
+                !image 
+                ?
+                    <span>{text}</span>
+                :
+                <img 
+                    className='button__image' 
+                    src={image} 
+                    alt={text}
+                    onClick={onClick}
+                />
+            }
         </button>
     )
 }

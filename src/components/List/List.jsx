@@ -11,7 +11,7 @@ const array = [{
     id: 2,
     isChecked: true,
     text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem rerum consequuntur quas magnam adipisci. Culpa, earum fugiat sequi aspernatur molestias iure eligendi ea sint quam, aliquam est. Vel, exercitationem molestias?'
-},3,4,5]
+},3]
 
 const List = () => {
 
@@ -38,7 +38,6 @@ const List = () => {
                 ))
             }
         </ul>
-        <button onClick={() => test()} >delite</button>
         </>
     )
 }
