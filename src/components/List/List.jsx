@@ -1,43 +1,51 @@
 import React from 'react'
+import Error from '../Error/Error'
 import Listitem from '../ListItem/ListItem'
 
 import './List.scss'
 
-const array = [{
-    id: 1,
-    isChecked: false,
-    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem rerum consequuntur quas magnam adipisci. Culpa, earum fugiat sequi aspernatur molestias iure eligendi ea sint quam, aliquam est. Vel, exercitationem molestias? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem rerum consequuntur quas magnam adipisci. Culpa, earum fugiat sequi aspernatur molestias iure eligendi ea sint quam, aliquam est. Vel, exercitationem molestias? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem rerum consequuntur quas magnam adipisci. Culpa, earum fugiat sequi aspernatur molestias iure eligendi ea sint quam, aliquam est. Vel, exercitationem molestias?'
-}, {
-    id: 2,
-    isChecked: true,
-    text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem rerum consequuntur quas magnam adipisci. Culpa, earum fugiat sequi aspernatur molestias iure eligendi ea sint quam, aliquam est. Vel, exercitationem molestias?'
-},3]
+const List = (props) => {
 
-const List = () => {
+    const {
+        list
+    } = props
 
-    const [list, setList] = React.useState(array)
+    const [array, setList] = React.useState(list)
 
     const test = () => {
         setList(current => [...current, ...'1'])
-        console.log(list);
+        console.log(array);
     }
 
-    console.log(list);
+    const remoeTask = (task) => {
+        setList((current) => 
+            current.filter((item) => item.id !== task)
+        )
+    }
+
+    if (!array.length) {
+        return (
+            <Error />
+        )
+    }
 
     return (
         <>
         <ul>
             {
-                list.map((item) => (
+                array.map((item) => (
                     <Listitem 
                         key={item.id}
                         id={item.id}
                         isChecked={item.isChecked}
                         text={item.text}
+                        delite={(e) => remoeTask(e)}
                     />
                 ))
             }
         </ul>
+        <button onClick={() => remoeTask(2)}>123 2</button>
+
         </>
     )
 }

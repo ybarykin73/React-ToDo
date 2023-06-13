@@ -18,13 +18,18 @@ const ListItem = (props) => {
     const {
         text,
         id,
-        isChecked
+        isChecked,
+        delite,
     } = props
 
     const [isEdit, setText] = React.useState(true)
 
     const toggleEdit = () => {
         setText(!isEdit)
+    }
+
+    const remove = (id) => {
+        delite(id);
     }
 
     return (
@@ -58,10 +63,9 @@ const ListItem = (props) => {
                         :
                     <Button image={save} onClick={toggleEdit} />
                 }
-                <Button image={trash} />
+                <Button onClick={() => remove(id)} image={trash} />
             </div>
         </li>
-
     )
 }
 
