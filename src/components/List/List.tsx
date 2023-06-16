@@ -1,10 +1,11 @@
 import React from 'react'
+import { IProps } from './IList'
 import Error from '../Error/Error'
 import Listitem from '../ListItem/ListItem'
 
 import './List.scss'
 
-const List = (props) => {
+const List: React.FC<IProps> = (props) => {
 
     const {
         list,

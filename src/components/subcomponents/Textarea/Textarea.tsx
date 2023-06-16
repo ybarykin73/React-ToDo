@@ -1,8 +1,9 @@
 import React from 'react'
+import { IProps } from './ITextarea'
 
 import './Textarea.scss'
 
-const Textarea = (props) => {
+const Textarea: React.FC<IProps> = (props) => {
     const {
         text,
         onChahge
@@ -10,7 +11,11 @@ const Textarea = (props) => {
 
     const [value, setValue] = React.useState(text)
 
-    const changeValue = (e) => {
+    React.useEffect(() => {
+        setValue(text)
+    }, [text])
+
+    const changeValue = (e: React.ChangeEvent<{value: string}>) => {
         setValue(e.target.value)
         onChahge(e.target.value)
     }

@@ -19,20 +19,22 @@ const Main = () => {
 
     const [list, setList] = React.useState(array)
 
-    const addTask = (task) => {
-        const newTask = {
+    const addTask = (task: string) => {
+        const newTask =[
+        ...list,
+        {
             id: Math.floor(Math.random() * 100),
             text: task,
             isChecked: false,
-        }
-        setList(current => [...current, newTask])
+        }]
+        setList(newTask)
     }
 
-    const removeTask = (id) => {
+    const removeTask = (id: number) => {
         setList(current => current.filter(item => item.id !== id))
     }
 
-    const editTask = (idTask, newText) => {
+    const editTask = (idTask: number, newText :string) => {
         setList([
             ...list.map((item) => 
                 item.id === idTask ? { ...item, text: newText} : {...item}
@@ -40,8 +42,7 @@ const Main = () => {
         ])
     }
 
-    const compliteTask = (idTask) => {
-
+    const compliteTask = (idTask: number) => {
         setList([
             ...list.map((item) => 
                 item.id === idTask ? { ...item, isChecked: true} : {...item}

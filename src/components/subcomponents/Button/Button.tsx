@@ -1,17 +1,20 @@
 import React from 'react'
-
+import { IProps } from './IButton'
 import './Button.scss'
 
-const Button = (props) => {
+const Button: React.FC<IProps> = (props) => {
 
     const {
         text,
         image,
-        onClick
+        onClick,
     } = props
 
     return (
-        <button className={`button ${image ? 'button--image' : ''}`}>
+        <button 
+            className={`button ${image ? 'button--image' : ''}`}
+            aria-label={text}
+        >
             {
                 !image 
                 ?
