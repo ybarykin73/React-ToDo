@@ -16,11 +16,51 @@ const array = [{
 }]
 
 const Main = () => {
+
+    const [list, setList] = React.useState(array)
+
+    const addTask = (task) => {
+        const newTask = {
+            id: Math.floor(Math.random() * 100),
+            text: task,
+            isChecked: false,
+        }
+        setList(current => [...current, newTask])
+    }
+
+    const removeTask = (id) => {
+        setList(current => current.filter(item => item.id !== id))
+    }
+
+    const editTask = (idTask, newText) => {
+        setList([
+            ...list.map((item) => 
+                item.id === idTask ? { ...item, text: newText} : {...item}
+            )
+        ])
+    }
+
+    const compliteTask = (idTask) => {
+
+        setList([
+            ...list.map((item) => 
+                item.id === idTask ? { ...item, isChecked: true} : {...item}
+            )
+        ])
+    }
+
     return (
         <main className='main'>
             <h1 className='title'>TODO list</h1>
-            <List list={array} /> 
-            <Form />
+            <List 
+                removeTask={removeTask}
+                compliteTask={compliteTask}
+                editTask={editTask}
+                list={list} 
+            /> 
+            <Form 
+                newTask={addTask}
+            />
         </main>
     )
 }

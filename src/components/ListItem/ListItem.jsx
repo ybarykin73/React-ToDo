@@ -1,10 +1,10 @@
 import React from 'react'
 
 import time from '../../Image/time.svg'
-import complite from '../../Image/complite.svg'
-import edit from '../../Image/edit.svg'
+import compliteImage from '../../Image/complite.svg'
+import editIamge from '../../Image/edit.svg'
 import trash from '../../Image/trash.svg'
-import check from '../../Image/check.svg'
+import checkImage from '../../Image/check.svg'
 import save from '../../Image/save.svg'
 
 import Button from '../subcomponents/Button/Button'
@@ -12,58 +12,65 @@ import Textarea from '../subcomponents/Textarea/Textarea'
 
 import "./ListItem.scss"
 
-
 const ListItem = (props) => {
 
     const {
         text,
         id,
         isChecked,
+        complite,
         delite,
+        edit
     } = props
 
-    const [isEdit, setText] = React.useState(true)
+    const [isEdit, setText] = React.useState(false)
+    const [value, setValue] = React.useState(text)
 
-    const toggleEdit = () => {
+    const changeValue = (e) => {
+        setValue(e)
+        setText(true)
+    }
+
+    const editTask = (id, newText) => {
+        edit(id, newText)
         setText(!isEdit)
     }
 
-    const remove = (id) => {
-        delite(id);
+    const toggleEdit = () => {
+        setText(!isEdit)
     }
 
     return (
         <li className='list-item'>
             <img 
                 className='list-item__status' 
-                src={isChecked ? complite : time} 
+                src={isChecked ? compliteImage : time} 
                 alt="complite" 
             />
-
             <div className='list-item__body'>
                 {
                     !isEdit 
                     ?
                     <p className='list-item__text'>
-                        {text}
+                        {value}
                     </p>
                     : 
-                    <Textarea />
+                    <Textarea text={value} onChahge={changeValue} />
                 }
             </div>
             <div className='list-item__tollbar'>
                 {
                     !isChecked &&
-                    <Button image={check} />
+                    <Button onClick={() => complite(id)} image={checkImage} />
                 }
                 {
                     !isEdit 
                         ? 
-                    <Button image={edit} onClick={toggleEdit} />
+                    <Button image={editIamge} onClick={toggleEdit} />
                         :
-                    <Button image={save} onClick={toggleEdit} />
+                    <Button image={save} onClick={() => editTask(id, value)} />
                 }
-                <Button onClick={() => remove(id)} image={trash} />
+                <Button onClick={() => delite(id)} image={trash} />
             </div>
         </li>
     )

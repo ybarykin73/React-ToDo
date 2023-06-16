@@ -7,46 +7,34 @@ import './List.scss'
 const List = (props) => {
 
     const {
-        list
+        list,
+        removeTask,
+        compliteTask,
+        editTask
     } = props
 
-    const [array, setList] = React.useState(list)
-
-    const test = () => {
-        setList(current => [...current, ...'1'])
-        console.log(array);
-    }
-
-    const remoeTask = (task) => {
-        setList((current) => 
-            current.filter((item) => item.id !== task)
-        )
-    }
-
-    if (!array.length) {
+    if (!list.length) {
         return (
             <Error />
         )
     }
 
     return (
-        <>
         <ul>
             {
-                array.map((item) => (
+                list.map(item => (
                     <Listitem 
                         key={item.id}
                         id={item.id}
                         isChecked={item.isChecked}
                         text={item.text}
-                        delite={(e) => remoeTask(e)}
+                        complite={(e) => compliteTask(e)}
+                        delite={(e) => removeTask(e)}
+                        edit={(e,t) => editTask(e,t)}
                     />
                 ))
             }
         </ul>
-        <button onClick={() => remoeTask(2)}>123 2</button>
-
-        </>
     )
 }
 
