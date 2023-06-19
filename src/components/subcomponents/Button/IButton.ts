@@ -1,5 +1,5 @@
 export interface IProps {
     text: string,
-    image?: string,
-    onClick?: () => void
+    onClick?: () => void,
+    iconName?: string
 }

@@ -1,15 +1,9 @@
 import React from 'react'
 import { IProps } from './IListItem'
 
-import time from '../../Image/time.svg' 
-import compliteImage from '../../Image/complite.svg'
-import editIamge from '../../Image/edit.svg'
-import trash from '../../Image/trash.svg'
-import checkImage from '../../Image/check.svg'
-import save from '../../Image/save.svg'
-
 import Button from '../subcomponents/Button/Button'
 import Textarea from '../subcomponents/Textarea/Textarea'
+import Icon from '../subcomponents/Icon/Icon'
 
 import "./ListItem.scss"
 
@@ -43,11 +37,12 @@ const ListItem: React.FC<IProps> = (props) => {
 
     return (
         <li className='list-item'>
-            <img 
-                className='list-item__status' 
-                src={isChecked ? compliteImage : time} 
-                alt="complite" 
-            />
+            <div className='list-item__status'>
+                <Icon 
+                    iconId={isChecked ? 'complite' : 'time'} 
+                    size={40}
+                />
+            </div>
             <div className='list-item__body'>
                 {
                     !isEdit 
@@ -62,16 +57,24 @@ const ListItem: React.FC<IProps> = (props) => {
             <div className='list-item__tollbar'>
                 {
                     !isChecked &&
-                    <Button text='check' onClick={() => complite(id)} image={checkImage} />
+                    <Button 
+                        text='check' 
+                        onClick={() => complite(id)} 
+                        iconName='check' 
+                    />
                 }
                 {
                     !isEdit
                         ? 
-                    <Button text='edit' image={editIamge} onClick={toggleEdit} />
+                    <Button text='edit' iconName='edit' onClick={toggleEdit} />
                         :
-                    <Button text='save' image={save} onClick={() => editTask(id, value)} />
+                    <Button text='save' iconName='save' onClick={() => editTask(id, value)} />
                 }
-                <Button text='trash' onClick={() => delite(id)} image={trash} />
+                <Button 
+                    text='trash' 
+                    onClick={() => delite(id)} 
+                    iconName='trash'
+                 />
             </div>
         </li>
     )
