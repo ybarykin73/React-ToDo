@@ -2,7 +2,7 @@ import React from 'react'
 import { IProps } from './IForm'
 
 import Textarea from '../subcomponents/Textarea/Textarea'
-import Button from '../subcomponents/Button/Button'
+import Buttons from '../subcomponents/Button/Button'
 
 import './Form.scss'
 
@@ -27,7 +27,9 @@ const Form: React.FC<IProps> = (props) => {
         <form className='form' onSubmit={handleSubmit}>
             <h2 className='form__title'>Add new task</h2>
             <Textarea text={value} onChahge={changeValue}  /> 
-            <Button text='Add new task' />
+            <Buttons text='Add new task' >
+                <Buttons.ButtonText>Add new task</Buttons.ButtonText>
+            </Buttons>
         </form>
     )
 }

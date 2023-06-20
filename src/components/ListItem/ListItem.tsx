@@ -1,7 +1,7 @@
 import React from 'react'
 import { IProps } from './IListItem'
 
-import Button from '../subcomponents/Button/Button'
+import Buttons from '../subcomponents/Button/Button'
 import Textarea from '../subcomponents/Textarea/Textarea'
 import Icon from '../subcomponents/Icon/Icon'
 
@@ -57,24 +57,24 @@ const ListItem: React.FC<IProps> = (props) => {
             <div className='list-item__tollbar'>
                 {
                     !isChecked &&
-                    <Button 
-                        text='check' 
-                        onClick={() => complite(id)} 
-                        iconName='check' 
-                    />
+                    <Buttons text='check' onClick={() => complite(id)} >
+                        <Buttons.ButtonImage iconName='check' />
+                    </Buttons>
                 }
                 {
                     !isEdit
                         ? 
-                    <Button text='edit' iconName='edit' onClick={toggleEdit} />
+                    <Buttons text='edit' onClick={toggleEdit} >
+                        <Buttons.ButtonImage iconName='edit' />
+                    </Buttons>
                         :
-                    <Button text='save' iconName='save' onClick={() => editTask(id, value)} />
+                    <Buttons text='save' onClick={() => editTask(id, value)} >
+                        <Buttons.ButtonImage iconName='save' />
+                    </Buttons>
                 }
-                <Button 
-                    text='trash' 
-                    onClick={() => delite(id)} 
-                    iconName='trash'
-                 />
+                <Buttons text='trash' onClick={() => delite(id)} >
+                    <Buttons.ButtonImage iconName='trash' />
+                </Buttons>
             </div>
         </li>
     )
