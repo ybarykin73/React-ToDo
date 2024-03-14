@@ -1,26 +1,33 @@
 import React from 'react'
-import { IProps } from './IForm'
 
 import Textarea from '../subcomponents/Textarea/Textarea'
 import Buttons from '../subcomponents/Button/Button'
 
+import { useDispatchTodoList } from '../../context/TodoContext'
+
+import { IProps } from './IForm'
 import './Form.scss'
 
-const Form: React.FC<IProps> = (props) => {
+let idTask = 5
 
-    const {
-        newTask,
-    } = props
+const Form: React.FC<IProps> = () => {
 
     const [value, setValue] = React.useState('')
+
     const changeValue = (e: string) => {
         setValue(e)
     }
 
+    const dispatch = useDispatchTodoList()
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         setValue('')
-        newTask(value)
+        dispatch({
+            type: 'added',
+            id: idTask++,
+            text: value
+        })
     }
     
     return (
