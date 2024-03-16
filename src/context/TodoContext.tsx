@@ -60,7 +60,6 @@ export const todoReducer = (list: any, action: any) => {
   }
 }
 
-
 const array = [{
   id: 0,
   isChecked: true,
