@@ -71,7 +71,7 @@ const array = [{
 },{
   id: 2,
   isChecked: false,
-  text: 'Переделать дизайн'
+  text: 'Переделать дизайн, использовать стили неоморфизм'
 },{
   id: 3,
   isChecked: false,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Icon from '../subcomponents/Icon/Icon'
+import Checked from '../subcomponents/Checked/Checked'
 import Buttons from '../subcomponents/Button/Button'
 import Textarea from '../subcomponents/Textarea/Textarea'
 
@@ -57,10 +57,7 @@ const ListItem: React.FC<IProps> = (props) => {
     return (
         <li className='list-item'>
             <div className='list-item__status'>
-                <Icon 
-                    iconId={isChecked ? 'complite' : 'time'} 
-                    size={40}
-                />
+                <Checked checked={isChecked} />
             </div>
             <div className='list-item__body'>
                 {

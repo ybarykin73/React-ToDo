@@ -12,23 +12,34 @@
   --big-margin: 20px;
 
   /* border */
-  --big-border: 20px;
+  --main-border: 5px;
   --medium-border: 10px;
+  --big-border: 20px;
 
   /* color */
-  --background-color: #e0e0e0;
+
+  --primary-color: #000;
+  --secondary-color: #fff;
+  
+  --background-color: #252525;
   --white-color: #ffffff;
-  --shadow-main-color: #bebebe;
+  --shadow-primary-color: #000;
+  --shadow-secondary-color: #343434;
 
   /* shadow */
 
-  --weak-shadow: 4px 4px 8px var(--shadow-main-color),
-                -4px -4px 8px var(--white-color);
-  --weak-inset-shadow: inset 4px 4px 8px var(--shadow-main-color),
-                       inset -4px -4px 8px var(--white-color);
+  --weak-shadow: -2px 2px 3px var(--shadow-primary-color),
+                  2px -2px 3px var(--shadow-secondary-color);
+  --weak-inset-shadow: inset -2px 2px 3px var(--shadow-primary-color),
+                       inset 2px -2px 3px var(--shadow-secondary-color);
+
+  --average-shadow: -4px 4px 5px var(--shadow-primary-color),
+                  4px -4px 5px var(--shadow-secondary-color);
+  --average-inset-shadow: inset -4px 4px 5px var(--shadow-primary-color),
+                       inset 4px -4px 5px var(--shadow-secondary-color);
 
   --big-shadow: 26px 26px 52px var(--white-color),
-               -26px -26px 52px var(--shadow-main-color);
+               -26px -26px 52px var(--shadow-primary-color);
 }
 
 body {
