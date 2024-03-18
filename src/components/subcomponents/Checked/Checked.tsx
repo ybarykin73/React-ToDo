@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import Icon from '../Icon/Icon'
 
 import { IProps } from './IChecked'
@@ -13,4 +15,4 @@ const Checked: React.FC<IProps> = ({checked}) => {
   )
 }
 
-export default Checked
+export default memo(Checked)
