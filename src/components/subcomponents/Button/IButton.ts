@@ -1,4 +1,6 @@
 export interface IProps {
-    text: string,
+    ariaLabel: string
     onClick?: () => void,
+    style: 'icon' | 'primary'
+    children: React.ReactNode
 }

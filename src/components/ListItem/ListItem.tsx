@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import Checked from '../subcomponents/Checked/Checked'
-import Buttons from '../subcomponents/Button/Button'
+import Button from '../subcomponents/Button/Button'
 import Textarea from '../subcomponents/Textarea/Textarea'
+import Icon from '../subcomponents/Icon/Icon'
 
 import { useDispatchTodoList } from '../../context/TodoContext'
 
@@ -73,27 +74,43 @@ const ListItem: React.FC<IProps> = (props) => {
             <div className='list-item__tollbar'>
                 {
                     !isChecked &&
-                    <Buttons text='check' onClick={() => compliteTask(id)} >
-                        <Buttons.ButtonImage iconName='check' />
-                    </Buttons>
+                    <Button
+                        style='icon'
+                        ariaLabel='check'
+                        onClick={() => compliteTask(id)}
+                    >
+                        <Icon iconId='check' size={26} />
+                    </Button>
                 }
                 {
                     !isEdit
                         ? 
-                    <Buttons text='edit' onClick={toggleEdit} >
-                        <Buttons.ButtonImage iconName='edit' />
-                    </Buttons>
+                    <Button 
+                        style='icon'
+                        ariaLabel='edit'
+                        onClick={toggleEdit}
+                    >
+                        <Icon iconId='edit' size={26} />
+                    </Button>
                         :
-                    <Buttons text='save' onClick={() => editTask(id, value)} >
-                        <Buttons.ButtonImage iconName='save' />
-                    </Buttons>
+                    <Button
+                        style='icon'
+                        ariaLabel='save'
+                        onClick={() => editTask(id, value)}
+                    >
+                        <Icon iconId='save' size={26} />
+                    </Button>
                 }
-                <Buttons text='trash' onClick={() => removeTask(id)} >
-                    <Buttons.ButtonImage iconName='trash' />
-                </Buttons>
+                <Button
+                    style='icon'
+                    ariaLabel='trash'
+                    onClick={() => removeTask(id)}
+                >
+                    <Icon iconId='trash' size={26} />
+                </Button>
             </div>
         </li>
     )
 }
 
-export default ListItem
+export default memo(ListItem)

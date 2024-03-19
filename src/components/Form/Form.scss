@@ -1,7 +1,7 @@
 .form {
     padding: var(--big-padding);
     border-radius: var(--big-border);
-    box-shadow: var(--big-shadow);
+    box-shadow: var(--average-shadow);
 
     &__title {
         margin: 0;
@@ -10,11 +10,5 @@
 
     .textarea {
         margin-bottom: var(--small-margin);
-    }
-
-    .button {
-        width: 100%;
-        padding: var(--big-padding) var(--small-padding);
-        border-radius: 0;
     }
 }

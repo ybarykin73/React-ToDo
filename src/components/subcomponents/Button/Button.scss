@@ -1,18 +1,33 @@
 .button {
-    padding: var(--small-padding);
+    text-align: center;
+    color: var(--secondary-color);
+    background: linear-gradient(
+        225deg, 
+        var(--shadow-secondary-color), 
+        var(--shadow-primary-color)
+    );
+    background-size: 100% 100%;
     border: none;
-    border-radius: var(--big-border);
-    font-size: 16px;
-    background-color: var(--background-color);
     box-shadow: var(--weak-shadow);
-    transition: background-color 0.4s;
+    transition: background .5s ease-in;
+    cursor: pointer;
 
-    &:hover,
-    &:focus {
-        background-color: #d1d1d1;
+    &:hover {
+        background-size: 200% 200%;
     }
 
-    &--image {
-        border-radius: 50%;
+    &--primary {
+        width: 100%;
+        border-radius: var(--main-border);
+        padding: var(--big-padding) var(--small-padding);
+    }
+
+    &--icon {
+        display: block;
+        width: 46px;
+        height: 46px;
+        line-height: 46px;
+        padding: var(--small-padding);
+        border-radius: var(--medium-border)
     }
 }

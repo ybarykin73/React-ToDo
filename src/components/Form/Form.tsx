@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Textarea from '../subcomponents/Textarea/Textarea'
-import Buttons from '../subcomponents/Button/Button'
+import Button from '../subcomponents/Button/Button'
 
 import { useDispatchTodoList } from '../../context/TodoContext'
 
@@ -34,9 +34,12 @@ const Form: React.FC<IProps> = () => {
         <form className='form' onSubmit={handleSubmit}>
             <h2 className='form__title'>Add new task</h2>
             <Textarea text={value} onChahge={changeValue}  /> 
-            <Buttons text='Add new task' >
-                <Buttons.ButtonText>Add new task</Buttons.ButtonText>
-            </Buttons>
+            <Button 
+                style='primary' 
+                ariaLabel='Add new task'
+            >
+                Add new task
+            </Button>
         </form>
     )
 }
