@@ -73,33 +73,38 @@ const ListItem: React.FC<IProps> = (props) => {
             </div>
             <div className='list-item__tollbar'>
                 {
-                    !isChecked &&
-                    <Button
-                        style='icon'
-                        ariaLabel='check'
-                        onClick={() => compliteTask(id)}
-                    >
-                        <Icon iconId='check' size={26} />
-                    </Button>
-                }
-                {
-                    !isEdit
+                    !isChecked 
                         ? 
-                    <Button 
-                        style='icon'
-                        ariaLabel='edit'
-                        onClick={toggleEdit}
-                    >
-                        <Icon iconId='edit' size={26} />
-                    </Button>
+                        <>
+                            <Button
+                                style='icon'
+                                ariaLabel='check'
+                                onClick={() => compliteTask(id)}
+                            >
+                                <Icon iconId='check' size={26} />
+                            </Button> 
+                            {
+                                !isEdit 
+                                ?                    
+                                <Button 
+                                        style='icon'
+                                        ariaLabel='edit'
+                                        onClick={toggleEdit}
+                                    >
+                                    <Icon iconId='edit' size={26} />
+                                </Button> 
+                                : 
+                                <Button
+                                    style='icon'
+                                    ariaLabel='save'
+                                    onClick={() => editTask(id, value)}
+                                >
+                                    <Icon iconId='save' size={26} />
+                                </Button>
+                            }
+                        </> 
                         :
-                    <Button
-                        style='icon'
-                        ariaLabel='save'
-                        onClick={() => editTask(id, value)}
-                    >
-                        <Icon iconId='save' size={26} />
-                    </Button>
+                        null
                 }
                 <Button
                     style='icon'

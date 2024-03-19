@@ -1,4 +1,9 @@
-ul {
+.list {
     list-style: none;
-    padding: var(--big-padding);
+    margin: 0;
+    padding: 0;
+}
+
+.list-wrapper {
+    margin-bottom: var(--big-margin);
 }

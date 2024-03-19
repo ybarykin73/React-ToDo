@@ -18,18 +18,20 @@ const List: React.FC<IProps> = () => {
     }
 
     return (
-        <ul>
-            {
-                list.map(item => (
-                    <Listitem 
-                        key={item.id}
-                        id={item.id}
-                        isChecked={item.isChecked}
-                        text={item.text}
-                    />
-                ))
-            }
-        </ul>
+        <div className='list-wrapper'>
+            <ul className='list'>
+                {
+                    list.map(item => (
+                        <Listitem 
+                            key={item.id}
+                            id={item.id}
+                            isChecked={item.isChecked}
+                            text={item.text}
+                        />
+                    ))
+                }
+            </ul>
+        </div>
     )
 }
 

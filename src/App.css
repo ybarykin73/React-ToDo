@@ -4,7 +4,6 @@
 
 :root {
   /* padding */
-  --tiny-padding: 5px;
   --small-padding: 10px;
   --big-padding: 20px;
 
@@ -15,20 +14,61 @@
   /* border */
   --main-border: 5px;
   --medium-border: 10px;
-  --big-border: 20px;
+}
 
-  /* color */
+body {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
 
-  --primary-color: #000;
-  --secondary-color: #f3f3f3;
-  
-  --background-color: #252525;
-  --white-color: #c3c3c3;
-  --shadow-primary-color: #000;
-  --shadow-secondary-color: #343434;
+  &[data-theme='dark'] {
+    /* primary */
+    --primary-color-h: 0;
+    --primary-color-s: 0%;
+    --primary-color-l: 0%;
+
+    /* secondary */
+    --secondary-color-h: 0;
+    --secondary-color-s: 0%;
+    --secondary-color-l: 70%;
+  }
+
+  &[data-theme='light'] {
+    /* primary */
+    --primary-color-h: 0;
+    --primary-color-s: 0%;
+    --primary-color-l: 70%;
+
+    /* secondary */
+    --secondary-color-h: 0;
+    --secondary-color-s: 0%;
+    --secondary-color-l: 0%;
+  }
+
+  --primary-color: hsl(
+    var(--primary-color-h),
+    var(--primary-color-s),
+    var(--primary-color-l)
+  );
+
+  --secondary-color: hsl(
+    var(--secondary-color-h),
+    var(--secondary-color-s),
+    var(--secondary-color-l)
+  );
+
+  --background-color: hsl(
+    var(--primary-color-h),
+    var(--primary-color-s),
+    calc(var(--primary-color-l) + 15%)
+  );
+  --shadow-primary-color: var(--primary-color);
+  --shadow-secondary-color: hsl(
+    var(--primary-color-h),
+    var(--primary-color-s),
+    calc(var(--primary-color-l) + 20%)
+  );
 
   /* shadow */
-
   --weak-shadow: -2px 2px 3px var(--shadow-primary-color),
                   2px -2px 3px var(--shadow-secondary-color);
   --weak-inset-shadow: inset -2px 2px 3px var(--shadow-primary-color),
@@ -38,11 +78,4 @@
                   4px -4px 5px var(--shadow-secondary-color);
   --average-inset-shadow: inset -4px 4px 5px var(--shadow-primary-color),
                        inset 4px -4px 5px var(--shadow-secondary-color);
-
-  --big-shadow: 26px 26px 52px var(--white-color),
-               -26px -26px 52px var(--shadow-primary-color);
-}
-
-body {
-  background-color: var(--background-color);
 }

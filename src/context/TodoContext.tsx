@@ -42,7 +42,7 @@ const array = [{
   text: 'Исправить работу типов'
 },{
   id: 2,
-  isChecked: false,
+  isChecked: true,
   text: 'Переделать дизайн, использовать стили неоморфизм'
 },{
   id: 3,
