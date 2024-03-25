@@ -52,6 +52,10 @@ const array = [{
   id: 4,
   isChecked: false,
   text: 'Исправить добавление id для новых задач'
+},{
+  id: 5,
+  isChecked: false,
+  text: 'Реализовать смену темы'
 }]
 
 export default TodoProvider

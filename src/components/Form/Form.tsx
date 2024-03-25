@@ -8,7 +8,7 @@ import { useDispatchTodoList } from '../../context/TodoContext'
 import { IProps } from './IForm'
 import './Form.scss'
 
-let idTask = 5
+let idTask = 6
 
 const Form: React.FC<IProps> = () => {
 
