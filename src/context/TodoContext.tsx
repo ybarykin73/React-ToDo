@@ -46,7 +46,7 @@ const array = [{
   text: 'Переделать дизайн, использовать стили неоморфизм'
 },{
   id: 3,
-  isChecked: false,
+  isChecked: true,
   text: 'Добавить работу localStorage'
 },{
   id: 4,

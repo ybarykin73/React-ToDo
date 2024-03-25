@@ -1,11 +1,9 @@
-import React from "react"
+import useTheme from "../../hooks/useTheme"
 
 import Checkbox from "../subcomponents/Checkbox/Checkbox"
 
 const Theme = () => {
-  const [theme, setTheme] = React.useState('dark')
-
-  document.body.setAttribute('data-theme', theme)
+  const {theme, setTheme} = useTheme()
 
   const setSomething = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
