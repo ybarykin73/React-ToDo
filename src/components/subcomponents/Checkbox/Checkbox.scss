@@ -1,0 +1,35 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  &__label {
+    line-height: 1;
+    
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__wrapper {
+    width: 35px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    padding: 3px;
+  }
+
+  &__checked {
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    transition: margin .2s ease;
+  }
+
+  &__input:checked + .checkbox__checked {
+    margin-left: 15px;
+  }
+}

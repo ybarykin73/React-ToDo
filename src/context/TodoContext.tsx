@@ -54,7 +54,7 @@ const array = [{
   text: 'Исправить добавление id для новых задач'
 },{
   id: 5,
-  isChecked: false,
+  isChecked: true,
   text: 'Реализовать смену темы'
 }]
 
