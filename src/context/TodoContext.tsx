@@ -50,7 +50,7 @@ const array = [{
   text: 'Добавить работу localStorage'
 },{
   id: 4,
-  isChecked: false,
+  isChecked: true,
   text: 'Исправить добавление id для новых задач'
 },{
   id: 5,

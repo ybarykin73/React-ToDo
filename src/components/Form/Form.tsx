@@ -5,10 +5,10 @@ import Button from '../subcomponents/Button/Button'
 
 import { useDispatchTodoList } from '../../context/TodoContext'
 
+import getId from '../../utils/getId'
+
 import { IProps } from './IForm'
 import './Form.scss'
-
-let idTask = 6
 
 const Form: React.FC<IProps> = () => {
 
@@ -25,7 +25,7 @@ const Form: React.FC<IProps> = () => {
         setValue('')
         dispatch({
             type: 'added',
-            id: idTask++,
+            id: getId(),
             text: value
         })
     }
